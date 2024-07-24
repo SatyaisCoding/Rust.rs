@@ -28,6 +28,8 @@ fn main() {
     let char1 = greeting.chars().nth(1);   // if we will have to find the 1st char of "Hello World", then throught .unwrap(), we can easily do this 
 
     print!("char1 : {}", char1.unwrap());
+    // unwrap() --> this means that you will ok with the run time exception
+
 
 
 
