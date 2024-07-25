@@ -218,4 +218,53 @@ fn update_string() {
 
 
  print!("s2:{}",s2);    // Print --> "Hello"
+
+
+
+
+ fn main() {
+    let my_string = String::from("hello");
+    takes_ownership(my_string);
+    println!("{}", my_string); // This line would cause a compile error because ownership has been moved.
+}
+
+fn takes_ownership(some_string: String) {
+    println!("{}", some_string); // `some_string` now owns the data.
+
+
+// At any time, each value can have a single owner. This is to avoid memory issues like
+//1 :  Double free error.
+//2 :  Dangling pointers.
+
+
+//     Fix?
+// Clone the string
+
+    fn main() {
+    let s1 = String::from("hello");
+    let s2 = s1.clone();
+    println!("{}", s1); // Compiles now
+}
+
+    // But what if you want to pass the same string over to the function? 
+    // You don’t want to clone it, 
+    // and you want to return back ownership to the original function?
+
+    fn main() {
+    let s1 = String::from("hello");
+    let s2 = takes_ownership(s1);
+    println!("{}", s2);
+}
+
+fn takes_ownership(some_string: String) -> String {
+    println!("{}", some_string); 
+    return some_string; // return the string ownership back to the original main fn
+}
+
+
+    // Is there a better way to pass strings (or generally heap related data structures)
+    // to a function without passing over the ownership?
+    // Yes - References
+}
+    
 }
