@@ -376,6 +376,25 @@ fn update_word(word: &mut String) {
 // * If someone makes an immutable reference , they don’t expect the value to change suddenly .
 // * If more than one mutable references happen, there is a possibility of a data race and synchronization issues .
 
-    
+
+    // ********** Struct ********** //
+    //    --> Struct in rust , let you structure data together. Similar to objects in javascript
+
+    struct User {
+        active : bool,
+        username: String,
+        email: String,
+        sign_in_control: u64,
+    }
+
+    fn main(){
+        let user1 = User{
+            active : true,
+            username: String::from("satya.sk.prakash"),
+            email:String::from("satya.sk.prakash@gmail.com"),
+            sign_in_control:1,
+        };
+        print!("User 1 username: {:?}, user1.username");
+    }
     
 }
