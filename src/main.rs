@@ -396,5 +396,28 @@ fn update_word(word: &mut String) {
         };
         print!("User 1 username: {:?}, user1.username");
     }
+
+
+    // ********** Struct Implementation ********** //
+
+    use std::fmt::Debug;
+    struct Rect {
+   width: u32,
+   height: u32,
+}
+
+impl Debug for  Rect {
+    fn area(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+         write!(f, " the rectangular print like this {}", self.width * self.height)
+    }
+}
+
+fn main() {
+    let rect:React = Rect {
+        width: 30,
+        height: 50,
+    };
+    print!("The area of the rectangle is {:?}", rect);
+}
     
 }
