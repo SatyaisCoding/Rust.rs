@@ -635,6 +635,43 @@ fn main() {
                 }
             }
         }
+
+
+    // ********** Option Enums ********** // 
+
+
+    // Ref - https://viblo.asia/p/billion-dollar-mistake-RQqKLopr57z
+     
+    // The Option enum was introduced in Rust to handle the concept of nullability in a safe and expressive way.
+    //  Unlike many programming languages that use a null or similar keyword to represent the absence of a value,
+    // Rust doesn't have null.
+
+        
+            pub enum Option<T> {
+            None,
+            Some(T),
+        }
+
+// If you ever have a function that should return null, return an Option instead.
+
+// For example : ->
+
+        fn find_first_a(s: String) -> Option<i32> {
+            for (index, character) in s.chars().enumerate() {
+                if character == 'a' {
+                    return Some(index as i32);
+                }
+            }
+            return None;
+        }
+        
+        fn main() {
+            let my_string = String::from("raman");
+            match find_first_a(my_string) {
+                Some(index) => println!("The letter 'a' is found at index: {}", index),
+                None => println!("The letter 'a' is not found in the string."),
+            }
+        }
     
     
 }
